@@ -13,7 +13,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/calendar_views.xml',
     ],
     'qweb': [],

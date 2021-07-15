@@ -9,10 +9,26 @@
         <xpath expr="//calendar" position="attributes">
           <attribute name="quick_add">False</attribute>
         </xpath>
-        <field name="partner_ids" position="replace" >
-          <field name="partner_ids" widget="many2many_tags_avatar"/>
+<!--        I don't remember why I add this. I will comment them out-->
+<!--        <field name="partner_ids" position="replace" >-->
+<!--          <field name="partner_ids" widget="many2many_tags_avatar"/>-->
+<!--        </field>-->
+        <field name="user_id" position="after">
+          <field name="room_id" string="Rooms" filters="1"/>
         </field>
       </field>
     </record>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+      <field name="name">calendar.event.form.inherit.custom</field>
+      <field name="model">calendar.event</field>
+      <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='location']" position="before">
+          <field name="room_id"/>
+        </xpath>
+      </field>
+    </record>
+
   </data>
 </odoo>
